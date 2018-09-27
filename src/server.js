@@ -19,6 +19,10 @@ server.post(api + '/generateHtml', (req, res) => {
     res.send(new Buffer(appString));
 });
 
+server.get(api + '/ping', (req, res) => {
+    res.send('OK')
+})
+
 server.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
