@@ -9,7 +9,6 @@ const styles = {
     },
     svar: {
         whiteSpace: 'pre-wrap',
-        wordBreak: 'break-word',
         margin: '5px 0'
     }
 };

@@ -21,7 +21,6 @@ const styles = {
     tittel: {
         textTransform: 'uppercase',
         textAlign: 'center',
-        padding: '10px 0',
     },
     ikon: {
         height: '32.25px',
