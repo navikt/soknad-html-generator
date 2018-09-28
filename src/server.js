@@ -15,7 +15,6 @@ server.post(api + '/generateHtml', (req, res) => {
     const oppsummering = req.body;
     const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>);
 
-    console.log(appString);
     res.set('Content-Type', 'text/html');
     res.send(new Buffer(appString));
 });
