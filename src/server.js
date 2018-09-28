@@ -3,7 +3,6 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import App from './app/App';
 
-
 const api = '/api';
 const express = require('express');
 const server = express();
@@ -19,10 +18,21 @@ server.post(api + '/generateHtml', (req, res) => {
     res.send(new Buffer(appString));
 });
 
+if (process.env.NODE_ENV === 'development') {
+    server.get(api + '/generateHtml', (req, res) => {
+        const oppsummering = require('./mock/oppsummering.json')
+        const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>);
+
+        res.set('Content-Type', 'text/html');
+        res.send(new Buffer(appString));
+    });
+}
+
+
 server.get(api + '/ping', (req, res) => {
-    res.send('OK')
+    res.send('OK');
 })
 
-server.listen(port, () => {
+server.listen(port, '0.0.0.0', () => {
     console.log(`Server started on port ${port}`);
 });
