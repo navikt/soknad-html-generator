@@ -8,7 +8,10 @@
     "start-dev": "yarn build && yarn start",
     "docker-build": "docker build -t soknad-kontantstotte-html .",
     "docker-start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
-    "build": "webpack -p --config ./webpack.config.js"
+    "build-dev": "webpack --config ./webpack.config.js",
+    "build": "webpack -p --config ./webpack.config.js",
+    "test:ci": "./ci-tests/scripts.sh test",
+    "test:ci-capture": "./ci-tests/scripts.sh capture"
   },
   "repository": {
     "type": "git",

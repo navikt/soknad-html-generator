@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 
+
 const port = process.env.PORT || 9000;
 
 module.exports = {
@@ -29,5 +30,10 @@ module.exports = {
         }
       },
     ],
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+  ]
 };
