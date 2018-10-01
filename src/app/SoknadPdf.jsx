@@ -63,14 +63,12 @@ const SoknadPdf = (props) => {
                                 return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'arbeidIUtlandet':
                                 return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            case 'familieforhold':
-                                return <UtenlandskeYtelser familieforhold={soknad.familieforhold} utenlandskeYtelser={soknad.utenlandskeYtelser} tekster={tekster} />
+                            case 'utenlandskeYtelser':
+                                return <UtenlandskeYtelser utenlandskeYtelser={soknad.utenlandskeYtelser} familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'utenlandskKontantstotte':
                                 return <UtenlandskKontantstotte utenlandskKontantstotte={soknad.utenlandskKontantstotte} tekster={tekster} />
                             case 'oppsummering':
                                 return <Oppsummering tekster={tekster} />
-                            default:
-                                console.log('Ukjent bolk: ', bolk)
                         }
                     } else {
                         return <GeneriskBolk bolk={bolk} />
