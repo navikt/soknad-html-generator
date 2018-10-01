@@ -6,6 +6,7 @@ import SokerKrav from './SokerKrav';
 import Barn from './Barn';
 import Barnehageplass from './Barnehageplass';
 import Familieforhold from './Familieforhold';
+import GeneriskBolk from './GeneriskBolk';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
 import UtenlandskeYtelser from './UtenlandskeYtelser';
@@ -33,25 +34,49 @@ const styles = {
 }
 
 const SoknadPdf = (props) => {
+    const { bolker, soknad, tekster } = props;
+
     return (
         <div style={styles.wrapper}>
             <div style={styles.container} >
                 <div style={styles.ikon}>
                     <NavIkon />
                 </div>
-                <h1 style={styles.tittel}>{props.tekster['kontantstotte.tittel']}</h1>
+                <h1 style={styles.tittel}>{tekster['kontantstotte.tittel']}</h1>
             </div>
 
-            <Personalia person={props.soknad.person} tekster={props.tekster}/>
-            <SokerKrav kravTilSoker={props.soknad.kravTilSoker} tekster={props.tekster}/>
-            <Barn mineBarn={props.soknad.mineBarn} tekster={props.tekster}/>
-            <Barnehageplass barnehageplass={props.soknad.barnehageplass} tekster={props.tekster}/>
-            <Familieforhold familieforhold={props.soknad.familieforhold} tekster={props.tekster}/>
-            <TilknytningTilUtland tilknytningTilUtland={props.soknad.tilknytningTilUtland} familieforhold={props.soknad.familieforhold} tekster={props.tekster}/>
-            <ArbeidIUtlandet arbeidIUtlandet={props.soknad.arbeidIUtlandet} familieforhold={props.soknad.familieforhold} tekster={props.tekster}/>
-            <UtenlandskeYtelser familieforhold={props.soknad.familieforhold} utenlandskeYtelser={props.soknad.utenlandskeYtelser} tekster={props.tekster}/>
-            <UtenlandskKontantstotte utenlandskKontantstotte={props.soknad.utenlandskKontantstotte} tekster={props.tekster}/>
-            <Oppsummering tekster={props.tekster} />
+            {
+                bolker.map(bolk => {
+                    if (bolk.elementer && bolk.elementer > 0) {
+                        switch (bolk.bolknavn) {
+                            case 'personalia':
+                                return <Personalia person={soknad.person} tekster={tekster}/>
+                            case 'kravTilSoker':
+                                return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
+                            case 'mineBarn':
+                                return <Barn mineBarn={soknad.mineBarn} tekster={tekster} />
+                            case 'barnehageplass':
+                                return <Barnehageplass barnehageplass={soknad.barnehageplass} tekster={tekster} />
+                            case 'familieforhold':
+                                return <Familieforhold familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'tilknytningTilUtland':
+                                return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'arbeidIUtlandet':
+                                return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'familieforhold':
+                                return <UtenlandskeYtelser familieforhold={soknad.familieforhold} utenlandskeYtelser={soknad.utenlandskeYtelser} tekster={tekster} />
+                            case 'utenlandskKontantstotte':
+                                return <UtenlandskKontantstotte utenlandskKontantstotte={soknad.utenlandskKontantstotte} tekster={tekster} />
+                            case 'oppsummering':
+                                return <Oppsummering tekster={tekster} />
+                            default:
+                                console.log('Ukjent bolk: ', bolk)
+                        }
+                    } else {
+                        return <GeneriskBolk bolk={bolk} />
+                    }
+                })
+            }
         </div>
     );
 };
