@@ -14,5 +14,5 @@ gemini.suite('soknad-html-generator', suite => {
     suite
         .setUrl('/api/generateHtml')
         .setCaptureElements('body')
-        .capture('yolo')
+        .capture('generert-html')
 });
