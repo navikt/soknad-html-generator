@@ -10,7 +10,8 @@
     "docker-start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
     "build-dev": "webpack --config ./webpack.config.js",
     "build": "webpack -p --config ./webpack.config.js",
-    "ci-test": "yarn build-dev && cd ci-tests && docker-compose build && docker-compose run gemini test"
+    "test:ci": "./ci-tests/scripts.sh test",
+    "test:ci-capture": "./ci-tests/scripts.sh capture"
   },
   "repository": {
     "type": "git",
