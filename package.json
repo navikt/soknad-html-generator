@@ -1,5 +1,5 @@
 {
-  "name": "soknad-html",
+  "name": "soknad-html-generator",
   "version": "1.0.0",
   "description": "Html generator",
   "main": "index.js",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/navikt/soknad-kontantstotte.git"
+    "url": "git+https://github.com/navikt/soknad-html-generator.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/navikt/soknad-kontantstotte/issues"
+    "url": "https://github.com/navikt/soknad-html-generator/issues"
   },
-  "homepage": "https://github.com/navikt/soknad-kontantstotte#readme",
+  "homepage": "https://github.com/navikt/soknad-html-generator#readme",
   "dependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
