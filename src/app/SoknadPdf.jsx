@@ -69,6 +69,8 @@ const SoknadPdf = (props) => {
                                 return <UtenlandskKontantstotte utenlandskKontantstotte={soknad.utenlandskKontantstotte} tekster={tekster} />
                             case 'oppsummering':
                                 return <Oppsummering tekster={tekster} />
+                            default:
+                                throw(new Error('Ukjent bolk: ', bolk))
                         }
                     } else {
                         return <GeneriskBolk bolk={bolk} />
