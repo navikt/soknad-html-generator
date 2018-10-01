@@ -1,11 +1,10 @@
 soknad-html-generator
 ====================
 
-En generell html generator basert på et definert søknadsobjekt.
-Eksempel på objektet:
+En generell html generator basert på et definert søknadsobjekt.<br/>Eksempel på objektet:
 
 ```
-{
+soknad: {
     bolker:
         [ { bolknavn: 'bolknavn',
             tittel: 'tittel',
@@ -16,11 +15,11 @@ Eksempel på objektet:
 
 Et element er bygget opp slik:
 ```
-    element: {
-        sporsmal: 'sporsmal',
-        svar: 'svar',
-        underelementer: [elementer]
-    }
+element: {
+    sporsmal: 'sporsmal',
+    svar: 'svar',
+    underelementer: [elementer]
+}
 ```
 
 # Kom i gang med utvikling
