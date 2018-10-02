@@ -47,7 +47,7 @@ const SoknadPdf = (props) => {
 
             {
                 bolker.map(bolk => {
-                    if (bolk.elementer && bolk.elementer > 0) {
+                    if (bolk.elementer === null || bolk.elementer === 0) {
                         switch (bolk.bolknavn) {
                             case 'personalia':
                                 return <Personalia person={soknad.person} tekster={tekster}/>
