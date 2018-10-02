@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/main.js",
-    "start-dev": "yarn build && yarn start",
+    "start-dev": "yarn build-dev && yarn start",
     "docker-build": "docker build -t soknad-kontantstotte-html .",
     "docker-start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
     "build-dev": "webpack --config ./webpack.config.js",
@@ -43,5 +43,5 @@
   "devDependencies": {
     "nodemon": "1.18.4",
     "webpack-cli": "^3.1.1"
-  }
+  },
 }

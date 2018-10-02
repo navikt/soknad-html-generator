@@ -3,7 +3,7 @@ import SoknadPdf from './SoknadPdf';
 
 const styles = {
   body: {
-    fontFamily: 'sans-serif', 
+    fontFamily: 'Source Sans Pro, sans-serif', 
     fontSize: '10pt',
     lineHeight: '1.4em',
     margin: '0',
