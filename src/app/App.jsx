@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SoknadPdf from './SoknadPdf';
 
 const styles = {
-  html: {
+  body: {
     fontFamily: 'sans-serif', 
     fontSize: '10pt',
     lineHeight: '1.4em',
@@ -15,12 +15,12 @@ const styles = {
 export default class App extends Component {
   render() {
     return (
-      <html style={styles.html}>
+      <html>
             <head>
             <meta httpEquiv="content-type" content="text/html; charset=utf-8"/>
             </head>
-            <body>
-              <SoknadPdf soknad={this.props.oppsummering.soknad} tekster={this.props.oppsummering.tekster} />
+            <body style={styles.body}>
+              <SoknadPdf soknad={this.props.oppsummering.soknad} tekster={this.props.oppsummering.tekster} bolker={this.props.oppsummering.bolker} />
             </body>
       </html>
     );
