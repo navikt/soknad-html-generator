@@ -64,6 +64,10 @@ function build_frontend {
     build_command yarn build
 }
 
+function ci_test {
+    ./ci-tests/scripts.sh test ${v}
+}
+
 function build_container {
     docker build \
         --tag ${TAG} \
