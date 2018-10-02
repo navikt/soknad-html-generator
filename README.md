@@ -26,7 +26,7 @@ element: {
 
 * Installere avhengigheter `yarn`
 * Starte dev-server `yarn start`
-* Åpne `http://localhost:9000/` i nettleseren din
+* Kall `http://localhost:9000/api/generateHtml` med ønsket søknadsobjekt
 
 For å bygge en prodversjon kjør `yarn build`
 
