@@ -7,6 +7,7 @@ import Barn from './Barn';
 import Barnehageplass from './Barnehageplass';
 import Familieforhold from './Familieforhold';
 import GeneriskBolk from './GeneriskBolk';
+import InnsendingDato from './InnsendingDato';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
 import UtenlandskeYtelser from './UtenlandskeYtelser';
@@ -30,6 +31,9 @@ const styles = {
         float: 'left',
         paddingTop: '13.875px',
         paddingLeft: '20px',
+    },
+    undertittel: {
+        padding: '.5cm',
     }
 }
 
@@ -50,7 +54,10 @@ const SoknadPdf = (props) => {
                     if (bolk.elementer === null || bolk.elementer === 0) {
                         switch (bolk.bolknavn) {
                             case 'personalia':
-                                return <Personalia person={soknad.person} tekster={tekster}/>
+                                return (<div style={styles.undertittel}>
+                                    <InnsendingDato tekster={props.tekster} dato={props.soknad.innsendingsTidspunkt}/>
+                                    <Personalia person={props.soknad.person} tekster={props.tekster}/>
+                                </div>);
                             case 'kravTilSoker':
                                 return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
                             case 'mineBarn':
