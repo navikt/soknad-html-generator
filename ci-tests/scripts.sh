@@ -11,7 +11,7 @@ case "$1" in
         )
         errorCode=$?
         if [ $errorCode -ne 0 ]; then
-            docker-compose down
+            docker-compose -p "$2" down
             exit $errorCode
         fi
         ;;
