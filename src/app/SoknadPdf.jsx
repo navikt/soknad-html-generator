@@ -46,12 +46,12 @@ const SoknadPdf = (props) => {
                 <h1 style={styles.tittel}>{tekster['kontantstotte.tittel']}</h1>
             </div>
 
+            {fnr && <Personalia fnr={fnr}/>}
+
             {
                 bolker.map(bolk => {
                     if (bolk.elementer === null || bolk.elementer === 0) {
                         switch (bolk.bolknavn) {
-                            case 'personalia':
-                                return <Personalia fnr={fnr}/>
                             case 'kravTilSoker':
                                 return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
                             case 'mineBarn':

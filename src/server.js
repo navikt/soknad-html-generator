@@ -25,7 +25,7 @@ server.post(api + '/generateHtml', (req, res) => {
                 }
             
                 console.log(`Søknad json ble lagret til '${mock_path}'`);
-            }); 
+            });
         }
     }
     
@@ -36,6 +36,7 @@ server.post(api + '/generateHtml', (req, res) => {
 server.get(api + '/generateHtml', (req, res) => {
     try {
         const oppsummering = require('./mock/oppsummering.json')
+        oppsummering.innsendingsTidspunkt = 'innsendingsTidspunkt'
         const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>, "utf-8");
 
         res.set('Content-Type', 'text/html');

@@ -6,6 +6,7 @@ case "$1" in
     "test")
         (
             set -e
+            docker-compose build
             docker-compose -p "$2" run --rm gemini test
             docker-compose -p "$2" down
         )
