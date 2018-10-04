@@ -1,8 +1,8 @@
 {
     "soknad": {
-        "innsendingTimestamp": "2018-10-02T15:41:59.635+02:00",
+        "innsendingsTidspunkt": 1538657114.396,
         "person": {
-            "fnr": "xxxxxxxxxxx"
+            "fnr": null
         },
         "kravTilSoker": {
             "barnIkkeHjemme": "JA",
@@ -13,9 +13,9 @@
             "skalBoMedBarnetINorgeNesteTolvMaaneder": "JA"
         },
         "familieforhold": {
-            "borForeldreneSammenMedBarnet": "JA",
-            "annenForelderNavn": "sdf",
-            "annenForelderFodselsnummer": "xxxxxxxxxxx",
+            "borForeldreneSammenMedBarnet": "NEI",
+            "annenForelderNavn": "",
+            "annenForelderFodselsnummer": "",
             "annenForelderYrkesaktivINorgeEOSIMinstFemAar": null
         },
         "barnehageplass": {
@@ -37,7 +37,7 @@
         "arbeidIUtlandet": {
             "arbeiderIUtlandetEllerKontinentalsokkel": "NEI",
             "arbeiderIUtlandetEllerKontinentalsokkelForklaring": "",
-            "arbeiderAnnenForelderIUtlandet": "NEI",
+            "arbeiderAnnenForelderIUtlandet": "UBESVART",
             "arbeiderAnnenForelderIUtlandetForklaring": ""
         },
         "utenlandskKontantstotte": {
@@ -45,33 +45,28 @@
             "mottarKontantstotteFraUtlandetTilleggsinfo": ""
         },
         "mineBarn": {
-            "navn": "asdf",
-            "fodselsdato": "12.12.1212"
+            "navn": "navn til barn",
+            "fodselsdato": "12.12.2012"
         },
         "tilknytningTilUtland": {
-            "annenForelderBoddEllerJobbetINorgeMinstFemAar": "jaINorge",
+            "annenForelderBoddEllerJobbetINorgeMinstFemAar": "Ubesvart",
             "annenForelderBoddEllerJobbetINorgeMinstFemAarForklaring": "",
-            "boddEllerJobbetINorgeMinstFemAar": "jaIEOS",
-            "boddEllerJobbetINorgeMinstFemAarForklaring": "test"
+            "boddEllerJobbetINorgeMinstFemAar": "jaINorge",
+            "boddEllerJobbetINorgeMinstFemAarForklaring": ""
         },
         "utenlandskeYtelser": {
             "mottarYtelserFraUtland": "NEI",
             "mottarYtelserFraUtlandForklaring": "",
-            "mottarAnnenForelderYtelserFraUtland": "JA",
-            "mottarAnnenForelderYtelserFraUtlandForklaring": "dgasgewqt"
+            "mottarAnnenForelderYtelserFraUtland": "UBESVART",
+            "mottarAnnenForelderYtelserFraUtlandForklaring": ""
         },
         "oppsummering": {
             "bekreftelse": "JA"
         },
         "sprak": "nb"
     },
+    "fnr": "xxxxxxxxxxx",
     "bolker": [
-        {
-            "bolknavn": "personalia",
-            "tittel": null,
-            "undertittel": null,
-            "elementer": null
-        },
         {
             "bolknavn": "kravTilSoker",
             "tittel": null,
@@ -85,12 +80,12 @@
             "elementer": [
                 {
                     "sporsmal": "Navn",
-                    "svar": "asdf",
+                    "svar": "navn til barn",
                     "underelementer": null
                 },
                 {
                     "sporsmal": "Fødselsdato",
-                    "svar": "12.12.1212",
+                    "svar": "12.12.2012",
                     "underelementer": null
                 }
             ]
@@ -250,6 +245,7 @@
         "oppsummering.tilknytningTilUtland.svar.jaLeggerSammenPerioderEOS": "Ja, hvis jeg legger sammen perioder i EØS-land",
         "arbeidIUtlandet.arbeiderAnnenForelderIUtlandet.sporsmal": "Arbeider den andre forelderen i utlandet, på utenlandsk skip eller på utenlandsk kontinentalsokkel?",
         "familieforhold.annenForelder.fodselsnummer.feilmelding": "Du må oppgi fødselsnummeret til den andre forelderen.",
+        "tilknytningTilUtland.advarsel.nei.soker": "Du vil mest mest sannsynlig få avslag på søknaden din. Du må ha bodd eller vært yrkesaktiv i Norge eller andre EØS-land i minst fem år til sammen for å kunne få kontantstøtte",
         "feilside.innsending.tittel": "Obs!",
         "barnehageplass.harSluttetIBarnehage.kommune.sporsmal": "Hvilken kommune ligger barnehagen i?",
         "feilside.dittnav.lenke.tekst": "Gå til Ditt NAV",
@@ -260,12 +256,14 @@
         "oppsummering.kravtilsoker.borSammenMedBarnet": "Jeg bor i Norge sammen med barnet",
         "utenlandskeYtelser.forklaring.hjelpetekst": "Oppgi land, utenlandsk id-nummer, adresse i landene og perioder",
         "barnehageplass.harBarnehageplass.kommune.sporsmal": "Hvilken kommune ligger barnehagen i?",
+        "oppsummering.innsendingsdato": "Søknad er sendt inn:",
         "barnehageplass.harSluttetIBarnehage": "har sluttet i barnehage",
         "arbeidIUtlandet.forklaring.hjelpetekst": "Oppgi land, utenlandsk id-nummer, adresse i landene og perioder",
         "kontantstotte.tittel": "Søknad om kontantstøtte",
         "tilknytningTilUtland.svar.jaINorge": "Ja, i Norge",
         "app.fortsett": "Fortsett",
         "tilknytningTilUtland.svar.jaIEOS": "Ja, i ett EØS-land",
+        "tilknytningTilUtland.advarsel.nei.annenForelder": "Du vil mest mest sannsynlig få avslag på søknaden din. Annen forelder må ha bodd eller vært yrkesaktiv i Norge eller andre EØS-land i minst fem år til sammen for å kunne få kontantstøtte",
         "svar.ja": "Ja",
         "feilmelding.generell.fodselsnummer": "Fødselsnummeret har feil format. Gyldig format: 11 siffer.",
         "barnehageplass.hjelpetekst": "<p>Det er den tildelte tiden i barnehagen som avgjør om du har rett til kontantstøtte eller ikke. Du må derfor ta med alle timene barnehagen er åpen. Her er et eksempel:</p><p>Barnehagen til Ida er åpen fra klokken 07.00 til klokken 17.00. Ida har fått tildelt fulltidsplass i barnehagen og kan derfor oppholde seg i barnehagen 10 timer per dag. Den tildelte plassen utgjør dermed 50 timer per uke. Dette gjelder uavhengig av om Ida faktisk er i barnehagen i den tildelte tiden eller ikke. Det vil si at dersom foreldrene til Ida planlegger å levere Ida klokken 09.00 og hente henne klokken 15.00, vil de likevel ikke ha rett til gradert kontantstøtte.</p>",
