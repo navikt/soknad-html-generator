@@ -23,6 +23,7 @@ const styles = {
     tittel: {
         textTransform: 'uppercase',
         textAlign: 'center',
+        marginRight: '70px',
     },
     ikon: {
         height: '32.25px',
@@ -34,7 +35,7 @@ const styles = {
 }
 
 const SoknadPdf = (props) => {
-    const { bolker, soknad, tekster } = props;
+    const { bolker, fnr, soknad, tekster } = props;
 
     return (
         <div style={styles.wrapper}>
@@ -50,7 +51,7 @@ const SoknadPdf = (props) => {
                     if (bolk.elementer === null || bolk.elementer === 0) {
                         switch (bolk.bolknavn) {
                             case 'personalia':
-                                return <Personalia person={soknad.person} tekster={tekster}/>
+                                return <Personalia fnr={fnr}/>
                             case 'kravTilSoker':
                                 return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
                             case 'mineBarn':

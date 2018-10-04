@@ -36,7 +36,6 @@ server.post(api + '/generateHtml', (req, res) => {
 server.get(api + '/generateHtml', (req, res) => {
     try {
         const oppsummering = require('./mock/oppsummering.json')
-        console.log(oppsummering)
         const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>, "utf-8");
 
         res.set('Content-Type', 'text/html');
