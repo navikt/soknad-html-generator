@@ -4,7 +4,7 @@ module.exports = {
 
     browsers: {
         chrome_large: {
-            gridUrl: 'http://chrome:5555/wd/hub',
+            gridUrl: 'http://chrome:4444/wd/hub',
             desiredCapabilities: {
                 browserName: 'chrome',
             },
