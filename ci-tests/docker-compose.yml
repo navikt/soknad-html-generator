@@ -17,5 +17,5 @@ services:
       - ./reports/:/reports/
   chrome:
     image: selenium/standalone-chrome:3.14.0
-    ports:
-      - 5555:5555
+    environment:
+      SE_OPTS: "-port 5555"
