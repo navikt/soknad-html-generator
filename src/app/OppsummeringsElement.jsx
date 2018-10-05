@@ -1,15 +1,20 @@
 import React from 'react';
+import AdvarselIkon from './ikoner/AdvarselIkon';
 
 const styles = {
     container: {
-        padding: '5px 0',
+        marginBottom: '.25cm',
     },
     sporsmal: {
-        margin: '5px 0',
+        margin: '.1cm 0',
     },
     svar: {
         whiteSpace: 'pre-wrap',
-        margin: '5px 0'
+        margin: '.1cm 0'
+    },
+    advarselIkon: {
+        float: 'left',
+        marginRight: '.25cm',
     }
 };
 
@@ -20,6 +25,12 @@ const OppsummeringsElement = (props) => {
             <h4 style={styles.sporsmal}>{props.sporsmal}</h4>
           }
           <p style={styles.svar}>{props.svar}</p>
+          { props.advarsel &&
+            <>
+                <AdvarselIkon style={styles.advarselIkon} />
+                <p style={styles.svar}>{props.advarsel}</p>
+            </>
+          }
       </div>
     );
 };

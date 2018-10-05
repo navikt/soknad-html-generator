@@ -28,7 +28,6 @@ server.post(api + '/generateHtml', (req, res) => {
             });
         }
     }
-    
     res.set('Content-Type', 'text/html');
     res.send(new Buffer(appString));
 });
