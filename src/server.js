@@ -18,19 +18,20 @@ server.post(api + '/generateHtml', (req, res) => {
     res.send(new Buffer(appString));
 });
 
-server.get('/test/getHtml/:type', (req, res) => {
-    try {
-        const oppsummering = require(`./mock/oppsummering_${req.params.type}.json`)
-        oppsummering.innsendingsTidspunkt = 'innsendingsTidspunkt'
-        const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>, "utf-8");
+if (process.env.NODE_ENV === 'development') {
+    server.get('/test/getHtml/:type', (req, res) => {
+        try {
+            const oppsummering = require(`./mock/oppsummering_${req.params.type}.json`)
+            oppsummering.innsendingsTidspunkt = 'innsendingsTidspunkt'
+            const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>, "utf-8");
 
-        res.set('Content-Type', 'text/html');
-        res.send(new Buffer(appString));
-    } catch (err) {
-        next(err);
-    }
-});
-
+            res.set('Content-Type', 'text/html');
+            res.send(new Buffer(appString));
+        } catch (err) {
+            next(err);
+        }
+    });
+}
 
 server.get(api + '/ping', (req, res) => {
     res.send('OK');
