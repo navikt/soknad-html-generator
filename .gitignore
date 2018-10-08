@@ -2,6 +2,7 @@
 .vscode/
 VERSION
 ci-tests/reports/*
-dist/
+dev/
+prod/
 node_modules
 yarn-error.log

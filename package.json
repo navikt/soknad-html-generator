@@ -8,8 +8,9 @@
     "start-dev": "yarn build-dev && yarn start",
     "docker-build": "docker build -t soknad-kontantstotte-html .",
     "docker-start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
-    "build-dev": "webpack --config ./webpack.config.js",
-    "build": "webpack -p --config ./webpack.config.js",
+    "build": "yarn build:prod",
+    "build:dev": "webpack --config ./webpack.dev.js",
+    "build:prod": "webpack --config ./webpack.prod.js",
     "test:ci": "./ci-tests/scripts.sh test",
     "test:ci-capture": "./ci-tests/scripts.sh capture"
   },
@@ -38,6 +39,7 @@
     "react-dom": "16.5.2",
     "style-loader": "^0.23.0",
     "webpack": "4.20.2",
+    "webpack-merge": "4.1.4",
     "webpack-node-externals": "^1.2.0"
   },
   "devDependencies": {

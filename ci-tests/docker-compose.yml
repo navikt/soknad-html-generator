@@ -2,11 +2,14 @@ version: '3'
 
 services:
   test-server:
-    build: ./../
+    image: navikt/node-express:1.0.0
+    volumes:
+      - ../dev:/var/dist
     ports:
       - 9000:9000
-    networks: 
-      - default
+    entrypoint:
+      - node
+      - /var/dist/main.js
   gemini:
     image: repo.adeo.no:5443/soknad/soknad-docker-gemini:1.0.0
     depends_on:
