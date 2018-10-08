@@ -13,7 +13,7 @@ server.use(bodyParser.json())
 server.post(api + '/generateHtml', (req, res) => {
     const oppsummering = req.body;
     const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>);
-    
+
     res.set('Content-Type', 'text/html');
     res.send(new Buffer(appString));
 });

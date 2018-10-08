@@ -1,5 +1,5 @@
 import React from 'react';
-import NavIkon from './NavIkon';
+import NavIkon from './ikoner/NavIkon';
 
 import Personalia from './Personalia';
 import SokerKrav from './SokerKrav';
