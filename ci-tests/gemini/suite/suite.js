@@ -12,7 +12,13 @@ function enableHover(window) {
 
 gemini.suite('soknad-html-generator', suite => {
     suite
-        .setUrl('/api/generateHtml')
+        .setUrl('/test/getHtml/enkel')
         .setCaptureElements('body')
-        .capture('generert-html')
+        .capture('generert-enkel-html')
+        .setUrl('/test/getHtml/komplett')
+        .setCaptureElements('body')
+        .capture('generert-komplett-html')
+        .setUrl('/test/getHtml/ekstrem')
+        .setCaptureElements('body')
+        .capture('generert-ekstrem-html')
 });
