@@ -1,10 +1,10 @@
 module.exports = {
+    gridUrl: 'http://chrome:4444/wd/hub',
     rootUrl: 'http://test-server:9000',
     screenshotsDir: './baseline',
 
     browsers: {
         chrome_large: {
-            gridUrl: 'http://chrome:4444/wd/hub',
             desiredCapabilities: {
                 browserName: 'chrome',
             },
