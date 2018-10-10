@@ -7,12 +7,13 @@ import Barn from './Barn';
 import Barnehageplass from './Barnehageplass';
 import Familieforhold from './Familieforhold';
 import GeneriskBolk from './GeneriskBolk';
-import InnsendingDato from './InnsendingDato';
+import InnsendingTidspunkt from './InnsendingTidspunkt';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
 import UtenlandskeYtelser from './UtenlandskeYtelser';
 import UtenlandskKontantstotte from './UtenlandskKontantstotte';
 import Oppsummering from './Oppsummering';
+import SoknadsInfo from "./SoknadsInfo";
 
 const styles = {
     wrapper:  {
@@ -32,9 +33,6 @@ const styles = {
         float: 'left',
         paddingTop: '13.875px',
         paddingLeft: '20px',
-    },
-    undertittel: {
-        padding: '.5cm',
     }
 }
 
@@ -50,41 +48,38 @@ const SoknadPdf = (props) => {
                 <h1 style={styles.tittel}>{tekster['kontantstotte.tittel']}</h1>
             </div>
 
-            <div style={styles.undertittel}>
-                <InnsendingDato tekster={props.tekster} dato={innsendingsTidspunkt}/>
-                {fnr && <Personalia fnr={fnr}/>}
+            <SoknadsInfo tekster={tekster} innsendingsTidspunkt={innsendingsTidspunkt} fnr={fnr}/>
 
-                {
-                    bolker.map(bolk => {
-                        if (bolk.elementer === null || bolk.elementer === 0) {
-                            switch (bolk.bolknavn) {
-                                case 'kravTilSoker':
-                                    return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
-                                case 'mineBarn':
-                                    return <Barn mineBarn={soknad.mineBarn} tekster={tekster} />
-                                case 'barnehageplass':
-                                    return <Barnehageplass barnehageplass={soknad.barnehageplass} tekster={tekster} />
-                                case 'familieforhold':
-                                    return <Familieforhold familieforhold={soknad.familieforhold} tekster={tekster} />
-                                case 'tilknytningTilUtland':
-                                    return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
-                                case 'arbeidIUtlandet':
-                                    return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
-                                case 'utenlandskeYtelser':
-                                    return <UtenlandskeYtelser utenlandskeYtelser={soknad.utenlandskeYtelser} familieforhold={soknad.familieforhold} tekster={tekster} />
-                                case 'utenlandskKontantstotte':
-                                    return <UtenlandskKontantstotte utenlandskKontantstotte={soknad.utenlandskKontantstotte} tekster={tekster} />
-                                case 'oppsummering':
-                                    return <Oppsummering tekster={tekster} />
-                                default:
-                                    throw(new Error('Ukjent bolk: ', bolk))
-                            }
-                        } else {
-                            return <GeneriskBolk bolk={bolk} />
+            {
+                bolker.map(bolk => {
+                    if (bolk.elementer === null || bolk.elementer === 0) {
+                        switch (bolk.bolknavn) {
+                            case 'kravTilSoker':
+                                return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
+                            case 'mineBarn':
+                                return <Barn mineBarn={soknad.mineBarn} tekster={tekster} />
+                            case 'barnehageplass':
+                                return <Barnehageplass barnehageplass={soknad.barnehageplass} tekster={tekster} />
+                            case 'familieforhold':
+                                return <Familieforhold familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'tilknytningTilUtland':
+                                return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'arbeidIUtlandet':
+                                return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'utenlandskeYtelser':
+                                return <UtenlandskeYtelser utenlandskeYtelser={soknad.utenlandskeYtelser} familieforhold={soknad.familieforhold} tekster={tekster} />
+                            case 'utenlandskKontantstotte':
+                                return <UtenlandskKontantstotte utenlandskKontantstotte={soknad.utenlandskKontantstotte} tekster={tekster} />
+                            case 'oppsummering':
+                                return <Oppsummering tekster={tekster} />
+                            default:
+                                throw(new Error('Ukjent bolk: ', bolk))
                         }
-                    })
-                }
-            </div>
+                    } else {
+                        return <GeneriskBolk bolk={bolk} />
+                    }
+                })
+            }
         </div>
     );
 };
