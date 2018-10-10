@@ -4,7 +4,7 @@ import OppsummeringsElement from './OppsummeringsElement';
 
 const SokerKrav = props => {
     return (
-        <Bolk tittel={props.tekster['sokerkrav.tittel']}>
+        <Bolk tittel={props.tekster['oppsummering.kravtilsoker.tittel']}>
             <OppsummeringsElement svar={props.tekster['oppsummering.kravtilsoker.norskStatsborger']}/>
             <OppsummeringsElement svar={props.tekster['oppsummering.kravtilsoker.boddEllerJobbetINorgeSisteFemAar']}/>
             <OppsummeringsElement svar={props.tekster['oppsummering.kravtilsoker.borSammenMedBarnet']}/>

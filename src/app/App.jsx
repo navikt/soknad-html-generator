@@ -14,13 +14,14 @@ const styles = {
 
 export default class App extends Component {
   render() {
+      console.log(this.props);
     return (
       <html>
             <head>
             <meta httpEquiv="content-type" content="text/html; charset=utf-8"/>
             </head>
             <body style={styles.body}>
-              <SoknadPdf soknad={this.props.oppsummering.soknad} tekster={this.props.oppsummering.tekster} bolker={this.props.oppsummering.bolker} />
+              <SoknadPdf soknad={this.props.oppsummering.soknad} fnr={this.props.oppsummering.fnr} innsendingsTidspunkt={this.props.oppsummering.innsendingsTidspunkt} tekster={this.props.oppsummering.tekster} bolker={this.props.oppsummering.bolker} />
             </body>
       </html>
     );
