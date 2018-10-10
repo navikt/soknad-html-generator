@@ -1,12 +1,12 @@
 import React from 'react';
 
 const styles = {
-    Dato: {
+    dato: {
         display: 'inline-block',
         width: '20%',
 
     },
-    DatoHeader: {
+    datolabel: {
         marginBottom: '5px',
     },
     tekst: {
@@ -17,8 +17,8 @@ const styles = {
 
 const InnsendingTidspunkt = (props) => {
     return (
-      <div style={styles.Dato}>
-          <h4 style={styles.DatoHeader}>{props.tekster['oppsummering.innsendingsdato']}</h4>
+      <div style={styles.dato}>
+          <h4 style={styles.datolabel}>{props.tekster['oppsummering.innsendingsdato']}</h4>
           <p style={styles.tekst}>{props.innsendingsTidspunkt}</p>
       </div>
     );
