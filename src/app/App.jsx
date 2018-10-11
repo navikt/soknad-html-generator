@@ -20,7 +20,7 @@ export default class App extends Component {
             <meta httpEquiv="content-type" content="text/html; charset=utf-8"/>
             </head>
             <body style={styles.body}>
-              <SoknadPdf soknad={this.props.oppsummering.soknad} fnr={this.props.oppsummering.fnr} tekster={this.props.oppsummering.tekster} bolker={this.props.oppsummering.bolker} />
+              <SoknadPdf soknad={this.props.oppsummering.soknad} fnr={this.props.oppsummering.fnr} innsendingsTidspunkt={this.props.oppsummering.innsendingsTidspunkt} tekster={this.props.oppsummering.tekster} bolker={this.props.oppsummering.bolker} />
             </body>
       </html>
     );

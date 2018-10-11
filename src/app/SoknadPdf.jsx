@@ -7,11 +7,13 @@ import Barn from './Barn';
 import Barnehageplass from './Barnehageplass';
 import Familieforhold from './Familieforhold';
 import GeneriskBolk from './GeneriskBolk';
+import InnsendingTidspunkt from './InnsendingTidspunkt';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
 import UtenlandskeYtelser from './UtenlandskeYtelser';
 import UtenlandskKontantstotte from './UtenlandskKontantstotte';
 import Oppsummering from './Oppsummering';
+import SoknadsInfo from "./SoknadsInfo";
 
 const styles = {
     wrapper:  {
@@ -35,7 +37,7 @@ const styles = {
 }
 
 const SoknadPdf = (props) => {
-    const { bolker, fnr, soknad, tekster } = props;
+    const { bolker, fnr, innsendingsTidspunkt, soknad, tekster } = props;
 
     return (
         <div style={styles.wrapper}>
@@ -46,7 +48,7 @@ const SoknadPdf = (props) => {
                 <h1 style={styles.tittel}>{tekster['kontantstotte.tittel']}</h1>
             </div>
 
-            {fnr && <Personalia fnr={fnr}/>}
+            <SoknadsInfo tekster={tekster} innsendingsTidspunkt={innsendingsTidspunkt} fnr={fnr}/>
 
             {
                 bolker.map(bolk => {

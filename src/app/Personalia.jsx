@@ -1,9 +1,9 @@
 import React from 'react';
 
 const spacing = {
-    margin: '0 0 10px 0',
-    padding: '0 0 10px 0',
-    textAlign: 'center'
+    textAlign: 'center',
+    display: 'inline-block',
+    width: '60%'
 };
 
 const Personalia = (props) => {
