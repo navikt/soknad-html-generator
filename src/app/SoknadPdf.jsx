@@ -2,7 +2,6 @@ import React from 'react';
 import NavIkon from './ikoner/NavIkon';
 
 import SokerKrav from './SokerKrav';
-import Barn from './Barn';
 import GeneriskBolk from './GeneriskBolk';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
@@ -51,8 +50,6 @@ const SoknadPdf = (props) => {
                         switch (bolk.bolknavn) {
                             case 'kravTilSoker':
                                 return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
-                            case 'mineBarn':
-                                return <Barn mineBarn={soknad.mineBarn} tekster={tekster} />
                             case 'tilknytningTilUtland':
                                 return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'arbeidIUtlandet':
