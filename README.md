@@ -4,7 +4,9 @@ soknad-html-generator
 En generell html generator basert på et definert søknadsobjekt.<br/>Eksempel på objektet:
 
 ```
-soknad: {
+{
+    fnr: 'xxxxxxxxxxx',
+    innsendingsTidspunkt: 'innsendingsTidspunkt',
     bolker:
         [ { bolknavn: 'bolknavn',
             tittel: 'tittel',
@@ -18,17 +20,26 @@ Et element er bygget opp slik:
 element: {
     sporsmal: 'sporsmal',
     svar: 'svar',
-    underelementer: [elementer]
+    advarsel: 'advarsel',
+    underelementer: [ elementer ]
 }
 ```
 
 # Kom i gang med utvikling
 
 * Installere avhengigheter `yarn`
-* Starte dev-server `yarn start-dev`
+* Starte dev-server `yarn start:dev`
 * Kall `http://localhost:9000/api/generateHtml` med ønsket søknadsobjekt
 
-For å bygge en prodversjon kjør `yarn build`
+For å bygge en prodversjon kjør `yarn build:prod`
+
+# Kjøring av visuelle regresjons tester
+
+* Installere avhengigheter `yarn`
+* Bygg dev-server `yarn build:dev`
+* Bygg docker `yarn docker:build`
+* Kjør vrt `yarn test:ci`
+* Ved oppdatering av vrt, kjør `yarn test:ci-capture`
 
 # Bygging på egen maskin
 

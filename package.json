@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node prod/main.js",
-    "start-dev": "yarn build:dev && node dev/main.js",
-    "docker-build": "docker build -t soknad-kontantstotte-html .",
-    "docker-start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
+    "start:dev": "yarn build:dev && node dev/main.js",
+    "docker:build": "docker build -t soknad-kontantstotte-html .",
+    "docker:start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
     "build": "yarn build:prod",
     "build:dev": "webpack --config ./webpack.dev.js",
     "build:prod": "webpack --config ./webpack.prod.js",
