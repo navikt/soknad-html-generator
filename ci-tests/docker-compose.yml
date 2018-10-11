@@ -17,3 +17,4 @@ services:
     volumes:
       - ./jest-image-snapshot/tests:/app/tests
       - ./jest-image-snapshot/baseline:/app/baseline
+      - ./reports:/app/reports
