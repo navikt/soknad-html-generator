@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  test-server:
+  ci-test-server:
     image: navikt/node-express:1.0.0
     volumes:
       - ../dev:/var/dist
@@ -10,15 +10,10 @@ services:
     entrypoint:
       - node
       - /var/dist/main.js
-  gemini:
-    image: repo.adeo.no:5443/soknad/soknad-docker-gemini:1.0.0
+  jest-image-snapshot:
+    image: repo.adeo.no:5443/soknad/soknad-docker-jest-image-snapshot:0.0.2
     depends_on:
-      - test-server
-      - chrome
+      - ci-test-server
     volumes:
-      - ./gemini:/var/gemini/
-      - ./reports/:/reports/
-  chrome:
-    image: selenium/standalone-chrome:3.14.0
-    ports:
-      - 4444:4444
+      - ./jest-image-snapshot/tests:/app/tests
+      - ./jest-image-snapshot/baseline:/app/baseline
