@@ -2,7 +2,9 @@ import React from 'react';
 
 const styles = {
     dato: {
-        float: 'left',
+        width: '20%',
+        display: 'inline-block',
+        whiteSpace: 'nowrap',
     },
     tekst: {
         fontWeight: 'normal',
