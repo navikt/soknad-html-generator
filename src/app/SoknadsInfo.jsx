@@ -4,7 +4,6 @@ import Personalia from "./Personalia";
 
 const styles = {
     soknadsInfo: {
-        padding: '.5cm',
     }
 };
 
