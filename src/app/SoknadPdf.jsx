@@ -1,16 +1,11 @@
 import React from 'react';
 import NavIkon from './ikoner/NavIkon';
 
-import Personalia from './Personalia';
 import SokerKrav from './SokerKrav';
 import Barn from './Barn';
-import Barnehageplass from './Barnehageplass';
-import Familieforhold from './Familieforhold';
 import GeneriskBolk from './GeneriskBolk';
-import InnsendingTidspunkt from './InnsendingTidspunkt';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
-import UtenlandskeYtelser from './UtenlandskeYtelser';
 import UtenlandskKontantstotte from './UtenlandskKontantstotte';
 import Oppsummering from './Oppsummering';
 import SoknadsInfo from "./SoknadsInfo";
@@ -58,16 +53,10 @@ const SoknadPdf = (props) => {
                                 return <SokerKrav kravTilSoker={soknad.kravTilSoker} tekster={tekster} />
                             case 'mineBarn':
                                 return <Barn mineBarn={soknad.mineBarn} tekster={tekster} />
-                            case 'barnehageplass':
-                                return <Barnehageplass barnehageplass={soknad.barnehageplass} tekster={tekster} />
-                            case 'familieforhold':
-                                return <Familieforhold familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'tilknytningTilUtland':
                                 return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'arbeidIUtlandet':
                                 return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            case 'utenlandskeYtelser':
-                                return <UtenlandskeYtelser utenlandskeYtelser={soknad.utenlandskeYtelser} familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'utenlandskKontantstotte':
                                 return <UtenlandskKontantstotte utenlandskKontantstotte={soknad.utenlandskKontantstotte} tekster={tekster} />
                             case 'oppsummering':
