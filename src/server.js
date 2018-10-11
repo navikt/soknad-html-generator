@@ -22,7 +22,6 @@ if (process.env.NODE_ENV === 'development') {
     server.get('/test/getHtml/:type', (req, res) => {
         try {
             const oppsummering = require(`./mock/oppsummering_${req.params.type}.json`)
-            oppsummering.innsendingsTidspunkt = 'innsendingsTidspunkt'
             const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>, "utf-8");
 
             res.set('Content-Type', 'text/html');
