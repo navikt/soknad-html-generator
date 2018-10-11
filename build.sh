@@ -90,7 +90,7 @@ function publish_container() {
 install_packages
 build_frontend_dev
 build_frontend_prod
-ci_test
+#ci_test
 create_version_file
 build_container
 
