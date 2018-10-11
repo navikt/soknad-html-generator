@@ -7,9 +7,12 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
-if [ "$(grep -Eo '[0-9]{11}' './src/mock/oppsummering*.json')" ]; then
+error="$(grep -Eo '[0-9]{11}' ./src/mock/oppsummering*.json)"
+
+if [[ $error = *[!\ ]* ]]; then
   tput setaf 1
-  echo 'Det ser ut som du er på vei til å commite et fødselsnummer i en av src/mock/oppsummering*.json filene!'
+  echo 'Det ser ut som du er på vei til å commite et fødselsnummer!'
+  echo "${error}"
   tput sgr0
   exit 1
 fi
