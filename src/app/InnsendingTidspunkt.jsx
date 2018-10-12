@@ -15,8 +15,8 @@ const styles = {
 const InnsendingTidspunkt = (props) => {
     return (
       <div style={styles.dato}>
-          <h4>{props.tekster['oppsummering.innsendingsdato']}
-            <span style={styles.tekst}>{props.innsendingsTidspunkt}</span>
+          <h4>{props.innsendingsTidspunkt.tekst}
+            <span style={styles.tekst}>{props.innsendingsTidspunkt.verdi}</span>
           </h4>
       </div>
     );

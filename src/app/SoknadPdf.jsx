@@ -1,10 +1,11 @@
 import React from 'react';
 import NavIkon from './ikoner/NavIkon';
+import PropTypes from 'prop-types';
 
 import GeneriskBolk from './GeneriskBolk';
 import TilknytningTilUtland from './TilknytningTilUtland';
 import ArbeidIUtlandet from './ArbeidIUtlandet';
-import Oppsummering from './Oppsummering';
+import Bekreftelse from './Bekreftelse';
 import SoknadsInfo from "./SoknadsInfo";
 
 const styles = {
@@ -29,7 +30,7 @@ const styles = {
 }
 
 const SoknadPdf = (props) => {
-    const { bolker, fnr, innsendingsTidspunkt, soknad, tekster } = props;
+    const { bolker, metaData, soknad, tekster } = props;
 
     return (
         <div style={styles.wrapper}>
@@ -37,10 +38,10 @@ const SoknadPdf = (props) => {
                 <div style={styles.ikon}>
                     <NavIkon />
                 </div>
-                <h1 style={styles.tittel}>{tekster['kontantstotte.tittel']}</h1>
+                <h1 style={styles.tittel}>{metaData.tittel}</h1>
             </div>
 
-            <SoknadsInfo tekster={tekster} innsendingsTidspunkt={innsendingsTidspunkt} fnr={fnr}/>
+            <SoknadsInfo person={metaData.person} innsendingsTidspunkt={metaData.innsendingsTidspunkt} />
 
             {
                 bolker.map(bolk => {
@@ -50,18 +51,36 @@ const SoknadPdf = (props) => {
                                 return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
                             case 'arbeidIUtlandet':
                                 return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            case 'oppsummering':
-                                return <Oppsummering tekster={tekster} />
                             default:
                                 throw(new Error('Ukjent bolk: ', bolk))
                         }
                     } else {
-                        return <GeneriskBolk bolk={bolk} />
+                        return <GeneriskBolk key={bolk.tittel} bolk={bolk} />
                     }
                 })
             }
+
+            <Bekreftelse bekreftelse={metaData.bekreftelse} />
         </div>
     );
 };
+
+SoknadPdf.propTypes = {
+  oppsummering: {
+    metaData: {
+      tittel: PropTypes.string,
+      innsendingsTidspunkt: MetaDataElement,
+      person: {
+          fnr: PropTypes.string,
+      },
+      bekreftelse: MetaDataElement
+    },
+  }
+};
+
+const MetaDataElement = {
+    tekst: PropTypes.string,
+    verdi: PropTypes.string,
+}
 
 export default SoknadPdf;

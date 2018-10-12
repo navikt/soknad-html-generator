@@ -12,7 +12,7 @@ server.use(bodyParser.json())
 
 server.post(api + '/generateHtml', (req, res) => {
     const oppsummering = req.body;
-    const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>);
+    const appString = renderToStaticMarkup(<App oppsummering={oppsummering} />);
 
     res.set('Content-Type', 'text/html');
     res.send(new Buffer(appString));
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
     server.get('/test/getHtml/:type', (req, res) => {
         try {
             const oppsummering = require(`./mock/oppsummering_${req.params.type}.json`)
-            const appString = renderToStaticMarkup(<App oppsummering={oppsummering}/>, "utf-8");
+            const appString = renderToStaticMarkup(<App oppsummering={oppsummering} />, "utf-8");
 
             res.set('Content-Type', 'text/html');
             res.send(new Buffer(appString));
