@@ -3,12 +3,12 @@ import InnsendingTidspunkt from "./InnsendingTidspunkt";
 import Personalia from "./Personalia";
 
 const SoknadsInfo = (props) => {
-    const { fnr, innsendingsTidspunkt, tekster } = props;
+    const { innsendingsTidspunkt, person } = props;
 
     return (
         <div>
-            <InnsendingTidspunkt tekster={tekster} innsendingsTidspunkt={innsendingsTidspunkt}/>
-            {fnr && <Personalia fnr={fnr}/>}
+            <InnsendingTidspunkt innsendingsTidspunkt={innsendingsTidspunkt}/>
+            {person.fnr && <Personalia fnr={person.fnr}/>}
         </div>
     );
 };
