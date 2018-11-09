@@ -66,14 +66,16 @@ const SoknadPdf = (props) => {
 };
 
 SoknadPdf.propTypes = {
-  oppsummering: {
+    oppsummering: {
     metaData: {
-      tittel: PropTypes.string,
-      innsendingsTidspunkt: MetaDataElement,
-      person: {
-          fnr: PropTypes.string,
-      },
-      bekreftelse: MetaDataElement
+        tittel: PropTypes.string,
+        skjemanummer: PropTypes.string,
+        fastsattdato: MetaDataElement,
+        innsendingsTidspunkt: MetaDataElement,
+        person: {
+            fnr: PropTypes.string,
+        },
+        bekreftelse: MetaDataElement
     },
   }
 };
@@ -81,6 +83,6 @@ SoknadPdf.propTypes = {
 const MetaDataElement = {
     tekst: PropTypes.string,
     verdi: PropTypes.string,
-}
+};
 
 export default SoknadPdf;
