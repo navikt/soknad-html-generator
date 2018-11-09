@@ -179,16 +179,30 @@
       ]
     },
     {
-      "bolknavn": "tilknytningTilUtland",
-      "tittel": null,
+      "bolknavn": null,
+      "tittel": "Tilknytning til andre land",
       "undertittel": null,
-      "elementer": null
+      "elementer": [
+        {
+          "sporsmal": "Har du bodd eller vært yrkesaktiv i Norge eller andre EØS-land i minst fem år tilsammen?",
+          "svar": "Ja, i Norge",
+          "advarsel": null,
+          "underelementer": null
+        }
+      ]
     },
     {
-      "bolknavn": "arbeidIUtlandet",
-      "tittel": null,
+      "bolknavn": null,
+      "tittel": "Arbeid i utlandet",
       "undertittel": null,
-      "elementer": null
+      "elementer": [
+        {
+          "sporsmal": "Arbeider du i utlandet, på utenlandsk skip eller på utenlandsk kontinentalsokkel?",
+          "svar": "Nei",
+          "advarsel": null,
+          "underelementer": null
+        }
+      ]
     },
     {
       "bolknavn": null,

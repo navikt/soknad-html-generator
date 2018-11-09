@@ -3,8 +3,6 @@ import NavIkon from './ikoner/NavIkon';
 import PropTypes from 'prop-types';
 
 import GeneriskBolk from './GeneriskBolk';
-import TilknytningTilUtland from './TilknytningTilUtland';
-import ArbeidIUtlandet from './ArbeidIUtlandet';
 import Bekreftelse from './Bekreftelse';
 import SoknadsInfo from "./SoknadsInfo";
 
@@ -27,10 +25,10 @@ const styles = {
         paddingTop: '13.875px',
         paddingLeft: '20px',
     }
-}
+};
 
 const SoknadPdf = (props) => {
-    const { bolker, metaData, soknad, tekster } = props;
+    const { bolker, metaData } = props;
 
     return (
         <div style={styles.wrapper}>
@@ -45,16 +43,7 @@ const SoknadPdf = (props) => {
 
             {
                 bolker.map(bolk => {
-                    if (bolk.elementer === null || bolk.elementer === 0) {
-                        switch (bolk.bolknavn) {
-                            case 'tilknytningTilUtland':
-                                return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            case 'arbeidIUtlandet':
-                                return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            default:
-                                throw(new Error('Ukjent bolk: ', bolk))
-                        }
-                    } else {
+                    if (bolk.elementer !== null || bolk.elementer !== 0) {
                         return <GeneriskBolk key={bolk.tittel} bolk={bolk} />
                     }
                 })
