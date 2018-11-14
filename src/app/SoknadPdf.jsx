@@ -32,6 +32,12 @@ const SoknadPdf = (props) => {
 
     return (
         <div style={styles.wrapper}>
+            <div className={"left-footer"}>
+                {metaData.skjemanummer + ' e-' + metaData.tittel.toLowerCase() }
+            </div>
+            <div className={"right-footer"}>
+                {metaData.fastsattdato.tekst + ' ' + metaData.fastsattdato.verdi}
+            </div>
             <div style={styles.container} >
                 <div style={styles.ikon}>
                     <NavIkon />
