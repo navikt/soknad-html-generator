@@ -36,7 +36,8 @@ const SoknadPdf = (props) => {
                 {metaData.skjemanummer + ' e-' + metaData.tittel.toLowerCase() }
             </div>
             <div className={"right-footer"}>
-                {metaData.fastsattdato.tekst + ' ' + metaData.fastsattdato.verdi}
+                {metaData.fastsattdato && (metaData.fastsattdato.tekst + ' ' + metaData.fastsattdato.verdi + ' ')}
+                {metaData.endretDato && (metaData.endretDato.tekst + ' ' + metaData.endretDato.verdi)}
             </div>
             <div style={styles.container} >
                 <div style={styles.ikon}>
@@ -65,6 +66,7 @@ SoknadPdf.propTypes = {
     metaData: {
         tittel: PropTypes.string,
         skjemanummer: PropTypes.string,
+        endretDato: MetaDataElement,
         fastsattdato: MetaDataElement,
         innsendingsTidspunkt: MetaDataElement,
         person: {
