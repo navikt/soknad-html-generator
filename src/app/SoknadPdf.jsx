@@ -3,8 +3,6 @@ import NavIkon from './ikoner/NavIkon';
 import PropTypes from 'prop-types';
 
 import GeneriskBolk from './GeneriskBolk';
-import TilknytningTilUtland from './TilknytningTilUtland';
-import ArbeidIUtlandet from './ArbeidIUtlandet';
 import Bekreftelse from './Bekreftelse';
 import SoknadsInfo from "./SoknadsInfo";
 
@@ -27,13 +25,20 @@ const styles = {
         paddingTop: '13.875px',
         paddingLeft: '20px',
     }
-}
+};
 
 const SoknadPdf = (props) => {
-    const { bolker, metaData, soknad, tekster } = props;
+    const { bolker, metaData } = props;
 
     return (
         <div style={styles.wrapper}>
+            <div className={"left-footer"}>
+                {metaData.skjemanummer + ' e-' + metaData.tittel.toLowerCase() }
+            </div>
+            <div className={"right-footer"}>
+                {metaData.fastsattdato && (metaData.fastsattdato.tekst + ' ' + metaData.fastsattdato.verdi + ' ')}
+                {metaData.endretDato && (metaData.endretDato.tekst + ' ' + metaData.endretDato.verdi)}
+            </div>
             <div style={styles.container} >
                 <div style={styles.ikon}>
                     <NavIkon />
@@ -45,16 +50,7 @@ const SoknadPdf = (props) => {
 
             {
                 bolker.map(bolk => {
-                    if (bolk.elementer === null || bolk.elementer === 0) {
-                        switch (bolk.bolknavn) {
-                            case 'tilknytningTilUtland':
-                                return <TilknytningTilUtland tilknytningTilUtland={soknad.tilknytningTilUtland} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            case 'arbeidIUtlandet':
-                                return <ArbeidIUtlandet arbeidIUtlandet={soknad.arbeidIUtlandet} familieforhold={soknad.familieforhold} tekster={tekster} />
-                            default:
-                                throw(new Error('Ukjent bolk: ', bolk))
-                        }
-                    } else {
+                    if (bolk.elementer !== null || bolk.elementer !== 0) {
                         return <GeneriskBolk key={bolk.tittel} bolk={bolk} />
                     }
                 })
@@ -66,14 +62,17 @@ const SoknadPdf = (props) => {
 };
 
 SoknadPdf.propTypes = {
-  oppsummering: {
+    oppsummering: {
     metaData: {
-      tittel: PropTypes.string,
-      innsendingsTidspunkt: MetaDataElement,
-      person: {
-          fnr: PropTypes.string,
-      },
-      bekreftelse: MetaDataElement
+        tittel: PropTypes.string,
+        skjemanummer: PropTypes.string,
+        endretDato: MetaDataElement,
+        fastsattdato: MetaDataElement,
+        innsendingsTidspunkt: MetaDataElement,
+        person: {
+            fnr: PropTypes.string,
+        },
+        bekreftelse: MetaDataElement
     },
   }
 };
@@ -81,6 +80,6 @@ SoknadPdf.propTypes = {
 const MetaDataElement = {
     tekst: PropTypes.string,
     verdi: PropTypes.string,
-}
+};
 
 export default SoknadPdf;

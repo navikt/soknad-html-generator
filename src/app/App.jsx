@@ -10,16 +10,12 @@ const styles = {
     color: '#3e3832',
     boxSizing: 'border-box',
   }
-}
+};
 
 export default class App extends Component {
   render() {
     const oppsummering = this.props.oppsummering;
     return (
-      <html>
-            <head>
-            <meta httpEquiv="content-type" content="text/html; charset=utf-8"/>
-            </head>
             <body style={styles.body}>
               <SoknadPdf
                 soknad={oppsummering.soknad}
@@ -27,7 +23,6 @@ export default class App extends Component {
                 tekster={oppsummering.tekster}
                 bolker={oppsummering.bolker} />
             </body>
-      </html>
     );
   }
 }
