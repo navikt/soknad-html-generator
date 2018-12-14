@@ -33,6 +33,9 @@ element: {
 
 For å bygge en prodversjon kjør `yarn build:prod`
 
+## Testing i nettleser
+I nettleser kan søknader generert fra mock-søknadsobjekter åpnes i `http://localhost:9000/test/getHtml/[søknadstype]`, hvor søknadstype `enkel`, `ekstrem` eller `komplett` er definert i mock-søknadsobjektets filnavn. 
+
 # Kjøring av visuelle regresjons tester
 
 * Installere avhengigheter `yarn`
