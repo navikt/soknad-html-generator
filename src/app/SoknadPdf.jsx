@@ -8,7 +8,7 @@ import SoknadsInfo from "./SoknadsInfo";
 
 const styles = {
     wrapper:  {
-    },    
+    },
     container:  {
         backgroundColor: '#c1b5d0',
         height: '60px',
@@ -24,7 +24,7 @@ const styles = {
         float: 'left',
         paddingTop: '13.875px',
         paddingLeft: '20px',
-    }
+    },
 };
 
 const SoknadPdf = (props) => {

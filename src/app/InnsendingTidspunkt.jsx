@@ -5,11 +5,13 @@ const styles = {
         width: '20%',
         display: 'inline-block',
         whiteSpace: 'nowrap',
+        position: 'absolute',
+        left: '0',
     },
     tekst: {
         fontWeight: 'normal',
         paddingLeft: '.5em',
-    }
+    },
 };
 
 const InnsendingTidspunkt = (props) => {
