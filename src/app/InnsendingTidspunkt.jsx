@@ -7,6 +7,7 @@ const styles = {
         whiteSpace: 'nowrap',
         position: 'absolute',
         left: '0',
+        paddingLeft: '20px',
     },
     tekst: {
         fontWeight: 'normal',
