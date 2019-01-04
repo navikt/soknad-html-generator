@@ -11,7 +11,7 @@ services:
       - node
       - /var/dist/main.js
   jest-image-snapshot:
-    image: repo.adeo.no:5443/soknad/soknad-docker-jest-image-snapshot:0.0.2
+    image: navikt/docker-jest-image-snapshot:1.0.0
     depends_on:
       - ci-test-server
     volumes:
