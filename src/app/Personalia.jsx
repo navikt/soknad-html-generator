@@ -3,13 +3,14 @@ import React from 'react';
 const spacing = {
     textAlign: 'center',
     display: 'inline-block',
-    width: '60%'
+    paddingBottom: '1rem',
 };
 
 const Personalia = (props) => {
     return (
         <div style={spacing}>
-            <h2>{props.fnr}</h2>
+            <h2>{props.navn}</h2>
+            {props.fnr}
         </div>
     );
 };
