@@ -37,8 +37,9 @@
       "skalBoMedBarnetINorgeNesteTolvMaaneder": "JA"
     },
     "mineBarn": {
-      "fodselsdato": "12.12.2018",
-      "navn": "Jakob"
+      "fodselsdato": "12.12.2018 og 12.12.2018",
+      "navn": "Jakob og Anne",
+      "erFlerling": "JA"
     },
     "oppsummering": {
       "bekreftelse": "JA"
@@ -132,13 +133,13 @@
       "elementer": [
         {
           "sporsmal": "Navn",
-          "svar": "Jakob",
-          "advarsel": null,
+          "svar": "Jakob og Anne",
+          "advarsel": "Vi ser at du søker for mer enn et barn. Vi forutsetter at opplysningene du oppgir om barna er like, om ikke må du søke for hvert av barna eller søke på papir.",
           "underelementer": null
         },
         {
-          "sporsmal": "Fødselsdato",
-          "svar": "12.12.2018",
+          "sporsmal": "Fødselsdato (dd.mm.åååå)",
+          "svar": "12.12.2018 og 12.12.2018",
           "advarsel": null,
           "underelementer": null
         }
