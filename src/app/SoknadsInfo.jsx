@@ -10,9 +10,11 @@ const SoknadsInfo = (props) => {
     const { innsendingsTidspunkt, person } = props;
 
     return (
-        <div style={centering}>
+        <div>
             <InnsendingTidspunkt innsendingsTidspunkt={innsendingsTidspunkt}/>
-            {(person.fnr && person.navn) && <Personalia fnr={person.fnr} navn={person.navn}/>}
+            <div style={centering}>
+                {(person.fnr && person.navn) && <Personalia fnr={person.fnr} navn={person.navn}/>}
+            </div>
         </div>
     );
 };
