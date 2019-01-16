@@ -1,16 +1,18 @@
 import React from 'react';
 
 const styles = {
-    dato: {
+    innsendingContainer: {
         width: '20%',
         display: 'inline-block',
         whiteSpace: 'nowrap',
-        position: 'absolute',
         left: '0',
         textAlign: 'left',
         paddingLeft: '20px',
     },
-    tekst: {
+    tidspunkt: {
+        marginBottom: '0',
+    },
+    tidspunktVerdi: {
         fontWeight: 'normal',
         paddingLeft: '.5em',
     },
@@ -18,9 +20,9 @@ const styles = {
 
 const InnsendingTidspunkt = (props) => {
     return (
-      <div style={styles.dato}>
-          <h4>{props.innsendingsTidspunkt.tekst}
-            <span style={styles.tekst}>{props.innsendingsTidspunkt.verdi}</span>
+      <div style={styles.innsendingContainer}>
+          <h4 style={styles.tidspunkt}>{props.innsendingsTidspunkt.tekst}
+            <span style={styles.tidspunktVerdi}>{props.innsendingsTidspunkt.verdi}</span>
           </h4>
       </div>
     );
