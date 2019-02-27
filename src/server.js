@@ -17,9 +17,15 @@ server.post(api + '/generateHtml', (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'development') {
+    const mocks = {
+        ekstrem: require('../mocks/oppsummering_ekstrem.json'),
+        enkel: require('../mocks/oppsummering_enkel.json'),
+        komplett: require('../mocks/oppsummering_komplett')
+    };
+
     server.get('/test/getHtml/:type', (req, res) => {
         try {
-            const oppsummering = require(`./mock/oppsummering_${req.params.type}.json`)
+            const oppsummering = mocks[req.params.type]
             const ferdigRendretHtml = renderStaticHtml(oppsummering);
 
             res.set('Content-Type', 'text/html');
