@@ -7,10 +7,13 @@ const spacing = {
 };
 
 const Personalia = (props) => {
+    const {navn, ...other} = props;
+    const personalia = Object.values(other);
+
     return (
         <div style={spacing}>
-            <h2>{props.navn}</h2>
-            {props.fnr}
+            <h2>{navn}</h2>
+            { personalia.map( (prop, index) => index != personalia.length - 1 ? prop + " // " : prop )}
         </div>
     );
 };

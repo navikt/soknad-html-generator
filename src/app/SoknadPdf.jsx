@@ -76,6 +76,8 @@ SoknadPdf.propTypes = {
         innsendingsTidspunkt: MetaDataElement,
         person: PropTypes.shape({
             fnr: PropTypes.string,
+            navn: PropTypes.string,
+            statsborgerskap: PropTypes.string,
         }),
         bekreftelse: MetaDataElement
     }),
