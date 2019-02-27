@@ -65,6 +65,7 @@ function build_frontend {
 }
 
 function ci_test {
+    build_command yarn build:dev
     ./ci-tests/scripts.sh test ${v}
 }
 
@@ -84,8 +85,8 @@ function publish_container() {
 
 
 install_packages
-build_frontend
 ci_test
+build_frontend
 create_version_file
 build_container
 
