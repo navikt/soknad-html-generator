@@ -3,7 +3,6 @@
 .idea/
 VERSION
 ci-tests/reports/*
-dev/
-prod/
+dist/
 node_modules
 yarn-error.log

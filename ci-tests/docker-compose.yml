@@ -4,7 +4,7 @@ services:
   ci-test-server:
     image: navikt/node-express:1.0.0
     volumes:
-      - ../dev:/var/dist
+      - ../dist:/var/dist
     ports:
       - 9000:9000
     entrypoint:
