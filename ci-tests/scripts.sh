@@ -12,8 +12,10 @@ case "$1" in
         errorCode=$?
         if [ $errorCode -ne 0 ]; then
             docker-compose -p "$2" down
-            #docker run --rm -v `pwd`/reports:/upload/files navikt/docker-directory-uploader:1.0.0 https://repo.adeo.no/repository/raw/nais/soknad-html-generator/"$2"
-            #echo "Se feilrapport fra jest-image-snapshot på https://repo.adeo.no/repository/raw/nais/soknad-html-generator/$2/gemini/index.html"
+            if [ ! -z "$2" ]; then
+                docker run --rm -v `pwd`/reports:/upload/files navikt/docker-directory-uploader:1.0.0 https://repo.adeo.no/repository/raw/nais/soknad-html-generator/"$2"
+                echo "Se feilrapport fra jest-image-snapshot på https://repo.adeo.no/repository/raw/nais/soknad-html-generator/$2/jest-image-snapshot/index.html"
+            fi
             exit $errorCode
         fi
         ;;

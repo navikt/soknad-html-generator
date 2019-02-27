@@ -60,16 +60,17 @@ function install_packages {
     build_command yarn
 }
 
-function build_frontend_prod {
+function build_frontend {
     build_command yarn build
 }
 
-function build_frontend_dev {
+function ci_test {
     build_command yarn build:dev
+    ./ci-tests/scripts.sh test ${v}
 }
 
-function ci_test {
-    ./ci-tests/scripts.sh test ${v}
+function create_version_file {
+    echo ${versjon} > VERSION
 }
 
 function build_container {
@@ -78,19 +79,14 @@ function build_container {
         .
 }
 
-function create_version_file {
-    echo ${versjon} > VERSION
-}
-
 function publish_container() {
     docker push ${TAG}
 }
 
 
 install_packages
-build_frontend_dev
-build_frontend_prod
 ci_test
+build_frontend
 create_version_file
 build_container
 

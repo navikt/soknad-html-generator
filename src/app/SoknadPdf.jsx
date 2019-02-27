@@ -61,25 +61,25 @@ const SoknadPdf = (props) => {
     );
 };
 
+const MetaDataElement = PropTypes.shape({
+    tekst: PropTypes.string,
+    verdi: PropTypes.string,
+});
+
 SoknadPdf.propTypes = {
-    oppsummering: {
-    metaData: {
+    oppsummering: PropTypes.shape({
+    metaData: PropTypes.shape({
         tittel: PropTypes.string,
         skjemanummer: PropTypes.string,
         endretDato: MetaDataElement,
         fastsattdato: MetaDataElement,
         innsendingsTidspunkt: MetaDataElement,
-        person: {
+        person: PropTypes.shape({
             fnr: PropTypes.string,
-        },
+        }),
         bekreftelse: MetaDataElement
-    },
-  }
-};
-
-const MetaDataElement = {
-    tekst: PropTypes.string,
-    verdi: PropTypes.string,
+    }),
+    })
 };
 
 export default SoknadPdf;

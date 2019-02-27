@@ -7,7 +7,7 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
-error="$(grep -Eo '[0-9]{11}' ./src/mock/oppsummering*.json)"
+error="$(grep -Eo '[0-9]{11}' ./mocks/oppsummering*.json)"
 
 if [[ $error = *[!\ ]* ]]; then
   tput setaf 1

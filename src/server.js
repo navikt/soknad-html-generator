@@ -1,14 +1,13 @@
 import bodyParser from 'body-parser';
 import { renderStaticHtml } from './app';
+import express from 'express';
 
-const api = '/api';
-const express = require('express');
 const server = express();
 const port = process.env.PORT || 9000;
 
 server.use(bodyParser.json());
 
-server.post(api + '/generateHtml', (req, res) => {
+server.post('/api/generateHtml', (req, res) => {
     const oppsummering = req.body;
     const ferdigRendretHtml = renderStaticHtml(oppsummering);
 
@@ -17,9 +16,15 @@ server.post(api + '/generateHtml', (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'development') {
+    const mocks = {
+        ekstrem: require('../mocks/oppsummering_ekstrem.json'),
+        enkel: require('../mocks/oppsummering_enkel.json'),
+        komplett: require('../mocks/oppsummering_komplett')
+    };
+
     server.get('/test/getHtml/:type', (req, res) => {
         try {
-            const oppsummering = require(`./mock/oppsummering_${req.params.type}.json`)
+            const oppsummering = mocks[req.params.type];
             const ferdigRendretHtml = renderStaticHtml(oppsummering);
 
             res.set('Content-Type', 'text/html');
@@ -30,7 +35,7 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
-server.get(api + '/ping', (req, res) => {
+server.get('/api/ping', (req, res) => {
     res.send('OK');
 });
 
