@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IBolk, IElement } from '../types';
-import OppsummeringsElement from './OppsummeringsElement';
+import Element from './Element';
 
 function calcInnrykk(innrykk: number) {
     return {
@@ -20,7 +20,7 @@ const renderElementer = (elementer: IElement[], innrykk: number) => {
     return elementer.map(element => {
         return (
             <div style={calcInnrykk(innrykk)} key={randomKey()}>
-                <OppsummeringsElement
+                <Element
                     sporsmal={element.sporsmal}
                     svar={element.svar}
                     advarsel={element.advarsel}
