@@ -1,0 +1,48 @@
+@import "header";
+@import "innsending-tidspunkt";
+@import "element";
+@import "bolk";
+@import "bekreftelse";
+@import "soknads-info";
+@import "personalia";
+
+body {
+  font-family: Source Sans Pro, sans-serif;
+  font-size: 10pt;
+  line-height: 1.4em;
+  margin: 0;
+  color: #3e3832;
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 1cm;
+}
+
+.left-footer {
+  font-size: 12px;
+  line-height: 1.25rem;
+  font-weight: 400;
+  display: inline-block;
+  position: running(left-footer);
+  margin-top: -.5cm;
+}
+
+.right-footer {
+  font-size: 12px;
+  line-height: 1.25rem;
+  font-weight: 400;
+  display: block;
+  position: running(right-footer);
+  margin-top: -.5cm;
+  text-align: right;
+}
+@page {
+  @bottom-left {
+    content: element(left-footer);
+  }
+  @bottom-right {
+    content: element(right-footer);
+  }
+}
