@@ -15,7 +15,7 @@ const SoknadsInfo: React.FunctionComponent<ISoknadsInfoProps> = ({
     return (
         <div>
             <InnsendingTidspunkt innsendingsTidspunkt={innsendingsTidspunkt} />
-            <div className={'centering'}>
+            <div className={'soknads-info__personalia'}>
                 {person.fnr && person.navn && <Personalia fnr={person.fnr} navn={person.navn} />}
             </div>
         </div>

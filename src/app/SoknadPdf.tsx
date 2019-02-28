@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { IOppsummering } from '../types';
-import NavIkon from './ikoner/NavIkon';
-
-import GeneriskBolk from './GeneriskBolk';
+import { Bolk } from './Bolk';
 import Bekreftelse from './Bekreftelse';
+import { Header } from './Header';
 import SoknadsInfo from './SoknadsInfo';
 
 interface ISoknadPdfProps {
@@ -14,7 +13,7 @@ const SoknadPdf: React.FunctionComponent<ISoknadPdfProps> = ({ oppsummering }) =
     const { bolker, metaData } = oppsummering;
 
     return (
-        <div className={'wrapper'}>
+        <div>
             <div className={'left-footer'}>
                 {metaData.skjemanummer + ' e-' + metaData.tittel.toLowerCase()}
             </div>
@@ -23,12 +22,7 @@ const SoknadPdf: React.FunctionComponent<ISoknadPdfProps> = ({ oppsummering }) =
                     metaData.fastsattdato.tekst + ' ' + metaData.fastsattdato.verdi + ' '}
                 {metaData.endretDato && metaData.endretDato.tekst + ' ' + metaData.endretDato.verdi}
             </div>
-            <div className={'container'}>
-                <div className={'ikon'}>
-                    <NavIkon />
-                </div>
-                <h1 className={'tittel'}>{metaData.tittel}</h1>
-            </div>
+            <Header tittel={metaData.tittel} />
 
             <SoknadsInfo
                 person={metaData.person}
@@ -37,7 +31,7 @@ const SoknadPdf: React.FunctionComponent<ISoknadPdfProps> = ({ oppsummering }) =
 
             {bolker.map(bolk => {
                 if (bolk.elementer !== null || bolk.elementer !== 0) {
-                    return <GeneriskBolk key={bolk.tittel} bolk={bolk} />;
+                    return <Bolk key={bolk.tittel} bolk={bolk} />;
                 }
             })}
 

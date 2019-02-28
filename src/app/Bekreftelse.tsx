@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IMetadataFelt, IOppsummering } from '../types';
+import { IMetadataFelt } from '../types';
 
 interface IBekreftelseProps {
     bekreftelse: IMetadataFelt;
@@ -7,7 +7,7 @@ interface IBekreftelseProps {
 
 const Bekreftelse: React.FunctionComponent<IBekreftelseProps> = props => {
     return (
-        <div className={'topBorder'}>
+        <div className={'bekreftelse'}>
             <h4 dangerouslySetInnerHTML={{ __html: props.bekreftelse.tekst }} />
         </div>
     );

@@ -33,14 +33,14 @@ interface IBolkProps {
 
 const Bolk: React.FunctionComponent<IBolkProps> = ({ bolk }) => {
     return (
-        <div className={'topBorder'}>
-            <div className={'bolkContainer'}>
-                {bolk.tittel && <h3 className={'uppercase'}>{bolk.tittel}</h3>}
-                {bolk.undertittel && <h4 className={'undertittel'}>{bolk.undertittel}</h4>}
+        <div className={'bolk'}>
+            <div className={'bolk__container'}>
+                {bolk.tittel && <h3 className={'bolk__tittel'}>{bolk.tittel}</h3>}
+                {bolk.undertittel && <h4 className={'bolk__undertittel'}>{bolk.undertittel}</h4>}
                 {renderElementer(bolk.elementer, FORSTE_INNRYKK)}
             </div>
         </div>
     );
 };
 
-export default Bolk;
+export { Bolk };

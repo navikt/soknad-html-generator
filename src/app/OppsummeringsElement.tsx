@@ -13,13 +13,13 @@ const OppsummeringsElement: React.FunctionComponent<IOppsummeringsElementProps> 
     advarsel,
 }) => {
     return (
-        <div className={'element'}>
-            {sporsmal && <h4 className={'element__sporsmal'}>{sporsmal}</h4>}
-            <p className={'element__svar'}>{svar}</p>
+        <div className={'oppsummerings-element'}>
+            {sporsmal && <h4 className={'oppsummerings-element__sporsmal'}>{sporsmal}</h4>}
+            <p className={'oppsummerings-element__svar'}>{svar}</p>
             {advarsel && (
                 <>
-                    <AdvarselIkon className={'element__advarsel-ikon'} />
-                    <p className={'element__advarsel'}>{advarsel}</p>
+                    <AdvarselIkon className={'oppsummerings-element__advarsel-ikon'} />
+                    <p className={'oppsummerings-element__advarsel'}>{advarsel}</p>
                 </>
             )}
         </div>
