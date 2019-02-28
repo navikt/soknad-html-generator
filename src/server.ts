@@ -1,6 +1,6 @@
 import * as bodyParser from 'body-parser';
 import * as Express from 'express';
-import { renderStaticHtml } from './app/index';
+import { renderStaticHtml } from './app';
 import { IOppsummering } from './types';
 
 const server = Express();
@@ -45,5 +45,6 @@ server.get('/api/ping', (req, res) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
+    /* tslint:disable:no-console */
     console.log(`Server started on port ${port}`);
 });

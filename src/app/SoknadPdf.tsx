@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IOppsummering } from '../types';
-import { Bolk } from './Bolk';
 import Bekreftelse from './Bekreftelse';
+import { Bolk } from './Bolk';
 import { Header } from './Header';
 import SoknadsInfo from './SoknadsInfo';
 

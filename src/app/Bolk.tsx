@@ -8,12 +8,18 @@ function calcInnrykk(innrykk: number) {
     };
 }
 
+function randomKey(): string {
+    return Math.random()
+        .toString(36)
+        .substring(7);
+}
+
 const FORSTE_INNRYKK = 0;
 
 const renderElementer = (elementer: IElement[], innrykk: number) => {
     return elementer.map(element => {
         return (
-            <div style={calcInnrykk(innrykk)}>
+            <div style={calcInnrykk(innrykk)} key={randomKey()}>
                 <OppsummeringsElement
                     sporsmal={element.sporsmal}
                     svar={element.svar}
