@@ -1,9 +1,10 @@
-import bodyParser from 'body-parser';
-import { renderStaticHtml } from './app';
-import express from 'express';
+import * as bodyParser from 'body-parser';
+import * as Express from 'express';
+import { renderStaticHtml } from './app/index';
+import { IOppsummering } from './types';
 
-const server = express();
-const port = process.env.PORT || 9000;
+const server = Express();
+const port = 9000;
 
 server.use(bodyParser.json());
 
@@ -15,14 +16,18 @@ server.post('/api/generateHtml', (req, res) => {
     res.send(new Buffer(ferdigRendretHtml));
 });
 
+interface IMocks {
+    [key: string]: IOppsummering;
+}
+
 if (process.env.NODE_ENV === 'development') {
-    const mocks = {
+    const mocks: IMocks = {
         ekstrem: require('../mocks/oppsummering_ekstrem.json'),
         enkel: require('../mocks/oppsummering_enkel.json'),
-        komplett: require('../mocks/oppsummering_komplett')
+        komplett: require('../mocks/oppsummering_komplett'),
     };
 
-    server.get('/test/getHtml/:type', (req, res) => {
+    server.get('/test/getHtml/:type', (req: Express.Request, res, next) => {
         try {
             const oppsummering = mocks[req.params.type];
             const ferdigRendretHtml = renderStaticHtml(oppsummering);
