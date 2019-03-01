@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { IOppsummering } from '../types';
-import SoknadPdf from './SoknadPdf';
+import { SoknadPdf } from './SoknadPdf';
 
 /* tslint:disable:no-var-requires */
 const css = require('./index.less').toString();

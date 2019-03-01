@@ -13,4 +13,4 @@ const Bekreftelse: React.FunctionComponent<IBekreftelseProps> = props => {
     );
 };
 
-export default Bekreftelse;
+export { Bekreftelse };

@@ -32,4 +32,4 @@ const AdvarselIkon: React.FunctionComponent<IAdvarselIkonProps> = ({ className }
     );
 };
 
-export default AdvarselIkon;
+export { AdvarselIkon };

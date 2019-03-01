@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AdvarselIkon from './ikoner/AdvarselIkon';
+import { AdvarselIkon } from './ikoner/AdvarselIkon';
 
 interface IOppsummeringsElementProps {
     sporsmal: string;
@@ -26,4 +26,4 @@ const Element: React.FunctionComponent<IOppsummeringsElementProps> = ({
     );
 };
 
-export default Element;
+export { Element };
