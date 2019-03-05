@@ -16,7 +16,13 @@ const SoknadsInfo: React.FunctionComponent<ISoknadsInfoProps> = ({
         <div>
             <InnsendingTidspunkt innsendingsTidspunkt={innsendingsTidspunkt} />
             <div className={'soknads-info__personalia'}>
-                {person.fnr && person.navn && <Personalia fnr={person.fnr} navn={person.navn} />}
+                {person.fnr && person.navn && person.statsborgerskap && (
+                    <Personalia
+                        fnr={person.fnr}
+                        navn={person.navn}
+                        statsborgerskap={person.statsborgerskap}
+                    />
+                )}
             </div>
         </div>
     );

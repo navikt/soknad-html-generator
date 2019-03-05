@@ -77,6 +77,7 @@ interface IMetadataFelt {
 interface IPerson {
     fnr: string;
     navn: string;
+    statsborgerskap: string;
 }
 
 interface IMetadata {
