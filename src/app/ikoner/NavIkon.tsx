@@ -40,4 +40,4 @@ const NavIkon: React.FunctionComponent = () => {
     );
 };
 
-export default NavIkon;
+export { NavIkon };

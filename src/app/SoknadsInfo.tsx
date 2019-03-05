@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IMetadataFelt, IPerson } from '../types';
-import InnsendingTidspunkt from './InnsendingTidspunkt';
-import Personalia from './Personalia';
+import { InnsendingTidspunkt } from './InnsendingTidspunkt';
+import { Personalia } from './Personalia';
 
 interface ISoknadsInfoProps {
     innsendingsTidspunkt: IMetadataFelt;
@@ -22,4 +22,4 @@ const SoknadsInfo: React.FunctionComponent<ISoknadsInfoProps> = ({
     );
 };
 
-export default SoknadsInfo;
+export { SoknadsInfo };

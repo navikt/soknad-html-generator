@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { IOppsummering } from '../types';
-import Bekreftelse from './Bekreftelse';
+import { Bekreftelse } from './Bekreftelse';
 import { Bolk } from './Bolk';
 import { Header } from './Header';
-import SoknadsInfo from './SoknadsInfo';
+import { SoknadsInfo } from './SoknadsInfo';
 
 interface ISoknadPdfProps {
     oppsummering: IOppsummering;
@@ -40,4 +40,4 @@ const SoknadPdf: React.FunctionComponent<ISoknadPdfProps> = ({ oppsummering }) =
     );
 };
 
-export default SoknadPdf;
+export { SoknadPdf };

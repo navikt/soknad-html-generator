@@ -24,7 +24,8 @@ if (process.env.NODE_ENV === 'development') {
     const mocks: IMocks = {
         ekstrem: require('../mocks/oppsummering_ekstrem.json'),
         enkel: require('../mocks/oppsummering_enkel.json'),
-        komplett: require('../mocks/oppsummering_komplett'),
+        komplett: require('../mocks/oppsummering_komplett.json'),
+        komplett_vedlegg: require('../mocks/oppsummering_komplett_vedlegg.json'),
     };
 
     server.get('/test/getHtml/:type', (req: Express.Request, res, next) => {

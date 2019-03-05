@@ -1,5 +1,5 @@
 import * as React from 'react';
-import NavIkon from './ikoner/NavIkon';
+import { NavIkon } from './ikoner/NavIkon';
 
 interface IHeaderProps {
     tittel: string;

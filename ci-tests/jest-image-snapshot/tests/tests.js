@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
 const pdf = { width: 800, height: 1 };
 
-const config = [['enkel', pdf], ['komplett', pdf], ['ekstrem', pdf]];
+const config = [['enkel', pdf], ['komplett', pdf], ['komplett_vedlegg', pdf], ['ekstrem', pdf]];
 
- describe('soknad-kontantstotte', () => {
+describe('soknad-kontantstotte', () => {
     let browser;
     beforeAll(async () => {
         browser = await puppeteer.launch({ args: ['--no-sandbox'] });
@@ -15,7 +15,7 @@ const config = [['enkel', pdf], ['komplett', pdf], ['ekstrem', pdf]];
             page = await browser.newPage();
             page.setViewport(size);
         });
-         test('html-generering', async () => {
+        test('html-generering', async () => {
             await page.goto(`http://ci-test-server:9000/test/getHtml/${type}`);
             await page.waitFor(1000);
             await takeSnapshot(`html-generering-${type}`, page);
