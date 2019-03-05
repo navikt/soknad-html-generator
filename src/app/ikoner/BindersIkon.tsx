@@ -8,10 +8,13 @@ interface IBindersIkon {
 const BindersIkon: React.FunctionComponent<IBindersIkon> = ({ className, style }) => {
     return (
         <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
             className={className}
+            height={24}
+            stroke={'#3E3832'}
             style={style}
+            viewBox="0 0 24 24"
+            width={24}
+            xmlns="http://www.w3.org/2000/svg"
         >
             <path
                 strokeLinecap="round"
