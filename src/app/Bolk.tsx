@@ -1,17 +1,13 @@
 import * as React from 'react';
 import { IBolk, IElement } from '../types';
-import Element from './Element';
+import { Element } from './Element';
+import { randomKey } from './util';
+import { VedleggElement } from './VedleggElement';
 
 function calcInnrykk(innrykk: number) {
     return {
         paddingLeft: innrykk * 0.5 + 'cm',
     };
-}
-
-function randomKey(): string {
-    return Math.random()
-        .toString(36)
-        .substring(7);
 }
 
 const FORSTE_INNRYKK = 0;
@@ -20,11 +16,19 @@ const renderElementer = (elementer: IElement[], innrykk: number) => {
     return elementer.map(element => {
         return (
             <div style={calcInnrykk(innrykk)} key={randomKey()}>
-                <Element
-                    sporsmal={element.sporsmal}
-                    svar={element.svar}
-                    advarsel={element.advarsel}
-                />
+                {Array.isArray(element.svar) ? (
+                    <VedleggElement
+                        sporsmal={element.sporsmal}
+                        svar={element.svar}
+                        advarsel={element.advarsel}
+                    />
+                ) : (
+                    <Element
+                        sporsmal={element.sporsmal}
+                        svar={element.svar}
+                        advarsel={element.advarsel}
+                    />
+                )}
                 {element.underelementer &&
                     element.underelementer.length > 0 &&
                     renderElementer(element.underelementer, innrykk + 1)}

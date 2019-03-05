@@ -20,4 +20,4 @@ const InnsendingTidspunkt: React.FunctionComponent<IInnsendingTidspunktProps> = 
     );
 };
 
-export default InnsendingTidspunkt;
+export { InnsendingTidspunkt };

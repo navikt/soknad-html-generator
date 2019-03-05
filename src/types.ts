@@ -92,7 +92,7 @@ interface IMetadata {
 
 interface IElement {
     sporsmal: string;
-    svar: string;
+    svar: string | string[];
     advarsel: string;
     underelementer: IElement[];
 }

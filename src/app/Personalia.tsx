@@ -15,4 +15,4 @@ const Personalia: React.FunctionComponent<IPeronaliaProps> = ({ navn, fnr, stats
     );
 };
 
-export default Personalia;
+export { Personalia };
