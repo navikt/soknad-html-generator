@@ -33,10 +33,8 @@ interface ISoknad {
     };
     kravTilSoker: {
         barnIkkeHjemme: string;
-        boddEllerJobbetINorgeSisteFemAar: string;
         borSammenMedBarnet: string;
         ikkeAvtaltDeltBosted: string;
-        norskStatsborger: string;
         skalBoMedBarnetINorgeNesteTolvMaaneder: string;
     };
     veiledning: {
