@@ -1,4 +1,5 @@
 *.json
 *.less
+*.yml
+*.yaml
 README.md
-docker-compose.yml
