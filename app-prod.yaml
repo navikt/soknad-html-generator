@@ -18,3 +18,5 @@ spec:
   resources:
     limits:
       cpu: "2"
+  ingresses:
+    - "https://soknad-html-generator.nais.oera.no/"
