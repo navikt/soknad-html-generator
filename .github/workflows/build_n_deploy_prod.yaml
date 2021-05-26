@@ -6,9 +6,9 @@ on:
       - 'master'
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/familie-ba-sak-frontend:${{ github.sha }}
-  IMAGE_LATEST: docker.pkg.github.com/${{ github.repository }}/familie-ba-sak-frontend:latest
-  VERSION: familie-ba-sak-frontend:${{ github.sha }}
+  IMAGE: docker.pkg.github.com/${{ github.repository }}/soknad-kontantstotte-html:${{ github.sha }}
+  IMAGE_LATEST: docker.pkg.github.com/${{ github.repository }}/soknad-kontantstotte-html:latest
+  VERSION: soknad-kontantstotte-html:${{ github.sha }}
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
         run: |
           yarn
           yarn build
-          yarn test
+          yarn test:ci
           docker build . -t ${IMAGE} -t ${IMAGE_LATEST}
           docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
           docker push ${IMAGE}
@@ -33,17 +33,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Deploy til dev-fss
+      - name: Deploy til dev-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-fss
-          RESOURCE: build_n_deploy/naiserator/naiserator_dev.yaml
+          CLUSTER: dev-sbs
+          RESOURCE: app-preprod.yaml
           VAR: VERSION=${{ env.VERSION }}
-      - name: Deploy til prod-fss
+      - name: Deploy til prod-sbs
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: prod-fss
-          RESOURCE: build_n_deploy/naiserator/naiserator_prod.yaml
+          CLUSTER: prod-sbs
+          RESOURCE: app-prod.yaml
           VAR: VERSION=${{ env.VERSION }}
