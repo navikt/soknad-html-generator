@@ -5,15 +5,17 @@ metadata:
   namespace: default
   labels:
     team: teamfamilie
-
+   
 spec:
   image: repo.adeo.no:5443/soknad-html-generator:RELEASE_VERSION
   port: 9000
   liveness:
-    path: api/ping
+    path: /api/ping
   readiness:
-    path: api/ping
+    path: /api/ping
   replicas:
+    min: 1
+    max: 2
     cpuThresholdPercentage: 50
   resources:
     limits:
