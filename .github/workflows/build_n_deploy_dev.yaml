@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/soknad-kontantstotte-html:${{ github.sha }}
+  IMAGE: ghcr.io/navikt/soknad-kontantstotte-html:${{ github.sha }}
   VERSION: soknad-kontantstotte-html:${{ github.sha }}
 
 jobs:
@@ -14,16 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Build and publish Docker image
+      - name: Build and test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           yarn
           yarn build
           yarn test:ci
-          docker build . -t ${IMAGE}
-          docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker push ${IMAGE}
+      - name: Build Docker image
+        run: |
+          docker build -t $IMAGE .
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@ab80d026d4753220c4243394c07c7d80f9638d06
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push Docker image
+        run: docker push $IMAGE
   deploy:
     name: Deploy to NAIS (dev-sbs)
     needs: build
