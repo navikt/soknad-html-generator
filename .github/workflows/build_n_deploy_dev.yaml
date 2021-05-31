@@ -15,8 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build and test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           yarn
           yarn build
