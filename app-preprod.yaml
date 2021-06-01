@@ -2,7 +2,7 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: soknad-html-generator
-  namespace: default
+  namespace: teamfamilie
   labels:
     team: teamfamilie
    
@@ -21,4 +21,4 @@ spec:
     limits:
       cpu: "2"
   ingresses:
-    - "https://soknad-html-generator.intern.dev.nav.no/"
+    - "https://soknad-html-generator.dev.intern.nav.no"

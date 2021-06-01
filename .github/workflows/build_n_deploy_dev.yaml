@@ -31,7 +31,7 @@ jobs:
       - name: Push Docker image
         run: docker push $IMAGE
   deploy:
-    name: Deploy to NAIS (dev-sbs)
+    name: Deploy to NAIS (dev-gcp)
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +39,6 @@ jobs:
       - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-sbs
+          CLUSTER: dev-gcp
           RESOURCE: app-preprod.yaml
           VAR: VERSION=${{ env.VERSION }}
