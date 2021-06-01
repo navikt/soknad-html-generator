@@ -45,12 +45,14 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-sbs
-          RESOURCE: app-preprod.yaml
+          RESOURCE: .deploy/naiserator.yaml
+          VARS: .deploy/dev-gcp.json
           VAR: VERSION=${{ env.VERSION }}
       - name: Deploy til prod-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: app-prod.yaml
+          RESOURCE: .deploy/naiserator.yaml
+          VARS: .deploy/prod-gcp.json
           VAR: VERSION=${{ env.VERSION }}

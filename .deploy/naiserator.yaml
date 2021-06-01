@@ -5,7 +5,7 @@ metadata:
   namespace: teamfamilie
   labels:
     team: teamfamilie
-
+   
 spec:
   image: {{image}}
   port: 9000
@@ -21,4 +21,10 @@ spec:
     limits:
       cpu: "2"
   ingresses:
-    - “https://soknad-html-generator.intern.nav.no”
+{{#each ingresses as |url|}}
+    - {{url}}
+{{/each}}
+  accessPolicy:
+    inbound:
+      rules:
+        - application: soknad-kontantstotte-api
