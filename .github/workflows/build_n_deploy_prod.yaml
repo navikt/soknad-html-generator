@@ -1,0 +1,58 @@
+name: Build&deploy to dev and prod
+
+on:
+  push:
+    branches:
+      - 'master'
+
+env:
+  IMAGE: ghcr.io/navikt/soknad-kontantstotte-html:${{ github.sha }}
+  IMAGE_LATEST: ghcr.io/navikt/soknad-kontantstotte-html:latest
+  VERSION: soknad-kontantstotte-html:${{ github.sha }}
+
+jobs:
+  build:
+    name: Build and push Docker container
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build and test
+        run: |
+          yarn
+          yarn build
+          yarn test:ci
+      - name: Build Docker image
+        run: |
+          docker build -t ${IMAGE} -t ${IMAGE_LATEST} .
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@ab80d026d4753220c4243394c07c7d80f9638d06
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push Docker image med versjonstag
+        run: docker push ${IMAGE}
+      - name: Push Docker image med 'latest' tag
+        run: docker push ${IMAGE_LATEST}
+  deploy:
+    name: Deploy to NAIS
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Deploy til dev-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-sbs
+          RESOURCE: .deploy/naiserator.yaml
+          VARS: .deploy/dev-gcp.json
+          VAR: VERSION=${{ env.VERSION }}
+      - name: Deploy til prod-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: .deploy/naiserator.yaml
+          VARS: .deploy/prod-gcp.json
+          VAR: VERSION=${{ env.VERSION }}
