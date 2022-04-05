@@ -10,8 +10,8 @@
     "docker:start": "docker run -d -p 127.0.0.1:9000:9000 soknad-kontantstotte-html",
     "prettier": "prettier --config .prettierrc.js --write 'src/**/*.tsx' 'src/**/*.ts'",
     "build": "yarn build:prod",
-    "build:dev": "webpack --env.NODE_ENV=development",
-    "build:prod": "webpack --env.NODE_ENV=production",
+    "build:dev": "webpack --env NODE_ENV=development",
+    "build:prod": "webpack --env NODE_ENV=production",
     "test:ci": "./ci-tests/scripts.sh test",
     "test:ci-capture": "./ci-tests/scripts.sh capture"
   },
@@ -41,10 +41,10 @@
     "@types/express": "4.16.1",
     "@types/react": "16.8.5",
     "@types/react-dom": "16.8.2",
-    "css-loader": "1.0.0",
+    "css-loader": "6.7.1",
     "husky": "2.4.0",
     "less": "3.8.1",
-    "less-loader": "4.1.0",
+    "less-loader": "10.2.0",
     "prettier": "1.16.4",
     "pretty-quick": "1.10.0",
     "style-loader": "0.23.0",
@@ -54,8 +54,8 @@
     "tslint-loader": "3.5.4",
     "tslint-react": "3.6.0",
     "typescript": "3.3.3333",
-    "webpack": "4.20.2",
-    "webpack-cli": "3.1.1",
+    "webpack": "5.71.0",
+    "webpack-cli": "4.9.2",
     "set-value": "2.0.1"
   }
 }
