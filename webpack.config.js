@@ -22,21 +22,28 @@ module.exports = env => {
             rules: [
                 {
                     test: /\.(ts|tsx)$/,
-                    loader: 'tslint-loader',
+                    use: [{ loader: 'tslint-loader' }],
                     enforce: 'pre',
                 },
                 {
                     test: /\.(js|jsx|ts|tsx)$/,
-                    loader: 'ts-loader',
+                    use: [{ loader: 'ts-loader' }],
                     exclude: /node_modules/,
                 },
-                { test: /\.less$/, loaders: ['css-loader', 'less-loader'] },
+                {
+                    test: /\.less$/,
+                    use: [{ loader: 'css-loader' }, { loader: 'less-loader' }],
+                },
                 {
                     test: /\.(html)$/,
-                    loader: 'html-loader',
-                    options: {
-                        attrs: [':data-src'],
-                    },
+                    use: [
+                        {
+                            loader: 'html-loader',
+                            options: {
+                                attrs: [':data-src'],
+                            },
+                        },
+                    ],
                 },
             ],
         },
